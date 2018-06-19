@@ -4,17 +4,19 @@
     "browser": true,
     "es6": true,
     "amd": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
   "parserOptions": {
     "ecmaFeatures": {
-      "experimentalObjectRestSpread": true,
-      "jsx": true
+      "experimentalObjectRestSpread": true
     },
     "sourceType": "module"
   },
   "plugins": [
-    "fp"
+    "babel",
+    "fp",
+    "no-unsafe-chars"
   ],
   "rules": {
     "indent": ["error", 4, {"SwitchCase": 1}],
@@ -49,13 +51,13 @@
     "no-unreachable": "error",
     "no-unsafe-finally": "error",
     "no-unsafe-negation": "error",
-    "array-callback-return": "error",
+    "array-callback-return": ["error", {"allowImplicit": true}],
     "block-scoped-var": "error",
     "complexity": ["error", 20],
     "consistent-return": ["error", {"treatUndefinedAsUnspecified": true}],
     "curly": "error",
     "default-case": "warn",
-    "dot-notation": "warn",
+    "dot-notation": ["error", {"allowKeywords": true}],
     "eqeqeq": ["error", "always"],
     "no-alert": "error",
     "no-case-declarations": "error",
@@ -118,26 +120,60 @@
     "no-shadow-restricted-names": "error",
     "no-undef-init": "error",
     "no-undefined": "error",
+    "no-undef": "error",
     "array-bracket-newline": ["error", "consistent"],
     "array-bracket-spacing": ["error", "never"],
     "block-spacing": ["error", "never"],
     "brace-style": ["error", "1tbs", {"allowSingleLine": true}],
     "camelcase": "error",
-    "comma-dangle": ["error", {"arrays": "only-multiline", "objects": "only-multiline", "imports": "never", "exports": "never", "functions": "ignore"}],
+    "comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "always-multiline",
+      "exports": "always-multiline",
+      "functions": "ignore"
+    }],
     "comma-spacing": ["error", {"before": false, "after": true}],
-    "comma-style": ["error", "last"],
+    "comma-style": ["error", "last", {
+      "exceptions": {
+        "ArrayExpression": false,
+        "ArrayPattern": false,
+        "ArrowFunctionExpression": false,
+        "CallExpression": false,
+        "FunctionDeclaration": false,
+        "FunctionExpression": false,
+        "ImportDeclaration": false,
+        "ObjectExpression": false,
+        "ObjectPattern": false,
+        "VariableDeclaration": false,
+        "NewExpression": false
+      }
+    }],
     "computed-property-spacing": ["error", "never"],
     "func-call-spacing": ["error", "never"],
     "jsx-quotes": ["error", "prefer-double"],
     "key-spacing": ["error", {"beforeColon": false, "afterColon": true}],
-    "keyword-spacing": ["error", {"before": true, "after": true}],
+    "keyword-spacing": ["error", {
+      "before": true,
+      "after": true,
+      "overrides": {
+        "return": {"after": true},
+        "throw": {"after": true},
+        "case": {"after": true}
+      }
+    }],
     "no-mixed-spaces-and-tabs": "error",
     "no-multi-assign": "error",
     "no-multiple-empty-lines": ["error", {"max": 1}],
     "no-tabs": "error",
-    "no-underscore-dangle": "error",
+    "no-underscore-dangle": ["error", {
+      "allow": [],
+      "allowAfterThis": false,
+      "allowAfterSuper": false,
+      "enforceInMethodNames": false
+    }],
     "no-whitespace-before-property": "error",
-    "quote-props": ["error", "as-needed"],
+    "quote-props": ["error", "as-needed", {"keywords": false, "unnecessary": true, "numbers": true}],
     "semi-spacing": ["error", {"before": false, "after": true}],
     "semi-style": ["error", "last"],
     "sort-keys": ["error", "asc"],
@@ -153,7 +189,127 @@
     "prefer-const": "error",
     "prefer-destructuring": "error",
     "prefer-template": "error",
-    "object-curly-spacing": "error",
+    "object-curly-spacing": ["error", "never"],
+    "babel/semi": "error",
+    "lines-between-class-members": "error",
+    "no-new-object": "error",
+    "object-shorthand": ["error", "always", {"ignoreConstructors": false, "avoidQuotes": true}],
+    "no-array-constructor": "error",
+    "space-before-function-paren": ["error", {"anonymous": "always", "named": "never", "asyncArrow": "always"}],
+    "space-before-blocks": "error",
+    "prefer-spread": "error",
+    "prefer-arrow-callback": ["error", {"allowNamedFunctions": false, "allowUnboundThis": true}],
+    "no-useless-constructor": "error",
+    "no-restricted-syntax": [
+      "error",
+      {
+        "selector": "ForInStatement",
+        "message": "for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array."
+      },
+      {
+        "selector": "ForOfStatement",
+        "message": "iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations."
+      },
+      {
+        "selector": "LabeledStatement",
+        "message": "Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand."
+      },
+      {
+        "selector": "WithStatement",
+        "message": "`with` is disallowed in strict mode because it makes code impossible to predict and optimize."
+      }
+    ],
+    "no-restricted-properties": ["error", {
+      "object": "arguments",
+      "property": "callee",
+      "message": "arguments.callee is deprecated"
+    }, {
+      "object": "global",
+      "property": "isFinite",
+      "message": "Please use Number.isFinite instead"
+    }, {
+      "object": "self",
+      "property": "isFinite",
+      "message": "Please use Number.isFinite instead"
+    }, {
+      "object": "window",
+      "property": "isFinite",
+      "message": "Please use Number.isFinite instead"
+    }, {
+      "object": "global",
+      "property": "isNaN",
+      "message": "Please use Number.isNaN instead"
+    }, {
+      "object": "self",
+      "property": "isNaN",
+      "message": "Please use Number.isNaN instead"
+    }, {
+      "object": "window",
+      "property": "isNaN",
+      "message": "Please use Number.isNaN instead"
+    }, {
+      "property": "__defineGetter__",
+      "message": "Please use Object.defineProperty instead."
+    }, {
+      "property": "__defineSetter__",
+      "message": "Please use Object.defineProperty instead."
+    }, {
+      "object": "Math",
+      "property": "pow",
+      "message": "Use the exponentiation operator (**) instead."
+    }],
+    "one-var": ["error", "never"],
+    "one-var-declaration-per-line": ["error", "always"],
+    "no-plusplus": "error",
+    "operator-linebreak": ["error", "before", {"overrides": {"=": "none"}}],
+    "no-nested-ternary": "error",
+    "no-unneeded-ternary": ["error", {"defaultAssignment": false}],
+    "no-mixed-operators": ["error", {
+      "groups": [
+        ["%", "**"],
+        ["%", "+"],
+        ["%", "-"],
+        ["%", "*"],
+        ["%", "/"],
+        ["**", "+"],
+        ["**", "-"],
+        ["**", "*"],
+        ["**", "/"],
+        ["&", "|", "^", "~", "<<", ">>", ">>>"],
+        ["==", "!=", "===", "!==", ">", ">=", "<", "<="],
+        ["&&", "||"],
+        ["in", "instanceof"]
+      ],
+      "allowSamePrecedence": false
+    }],
+    "nonblock-statement-body-position": ["error", "beside", {"overrides": {} }],
+    "spaced-comment": ["error", "always", {
+      "line": {
+        "exceptions": ["-", "+"],
+        "markers": ["=", "!"]
+      },
+      "block": {
+        "exceptions": ["-", "+"],
+        "markers": ["=", "!"],
+        "balanced": true
+      }
+    }],
+    "space-infix-ops": "error",
+    // "eol-last": ["error", "always"],
+    // "newline-per-chained-call": ["error", {"ignoreChainWithDepth": 4}],
+    "padded-blocks": ["error", {"blocks": "never", "classes": "never", "switches": "never"}],
+    "space-in-parens": ["error", "never"],
+    "id-length": ["error", {"min": 2, "properties": "never", "exceptions": ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "T", "F"]}],
+    "new-cap": ["error", {
+      "newIsCap": true,
+      "newIsCapExceptions": [],
+      "capIsNew": false,
+      "capIsNewExceptions": ["Immutable.Map", "Immutable.Set", "Immutable.List"]
+    }],
+    "no-restricted-globals": ["error", "isFinite", "isNaN"],
+
+    "no-unsafe-chars/no-umlauts": ["error"],
+    "no-unsafe-chars/custom": ["error", {"disallow": ["ß", "é", "à", "ï"]}],
 
     "fp/no-arguments": "error",
     "fp/no-class": "off",
