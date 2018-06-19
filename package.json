@@ -2,10 +2,10 @@
   "name": "loremize",
   "version": "1.0.0",
   "description": "Simple JavaScript-based sample text generator.",
+  "main": "./lib/loremize.js",
   "scripts": {
     "lint": "eslint ./src ./scripts --ext .js",
-    "build:clean": "babel-node --presets es2015 scripts/cleanup-build-dir.js",
-    "build:dev": "cross-env NODE_ENV=development webpack",
+    "build:clean": "babel-node --presets es2015 scripts/cleanup-build-dir.js", "build:dev": "cross-env NODE_ENV=development webpack",
     "build:prod": "cross-env NODE_ENV=production webpack",
     "prepublish": "npm run build:clean && npm run build:dev && npm run build:prod",
     "test": "jest --no-cache",
