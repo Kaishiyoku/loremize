@@ -1,6 +1,6 @@
 {
   "name": "loremize",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Simple JavaScript-based sample text generator.",
   "main": "dist/loremizer.cjs.js",
   "module": "dist/loremizer.esm.js",
