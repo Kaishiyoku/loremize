@@ -3,8 +3,12 @@ import words from '../src/words';
 
 describe('loremize', () => {
     it('should return the given number of words', () => {
-        console.log('--->'+ loremize(1) + '<--');
-
         expect(words.includes(loremize(1))).toBeTruthy();
+
+        loremize(10).split(' ').forEach((value) => {
+            expect(words.includes(value)).toBeTruthy();
+        });
+
+        expect(loremize(0)).toBeNull();
     });
 });
