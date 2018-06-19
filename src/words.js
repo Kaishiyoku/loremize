@@ -14,7 +14,7 @@ const words = [
     'eirmod',
     'elitr',
     'eos',
-    'erat,',
+    'erat',
     'est',
     'et',
     'gubergre',
