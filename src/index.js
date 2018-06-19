@@ -1,3 +1,5 @@
-import loremize from './loremize';
+import loremizeWords from './loremizeWords';
 
-export default loremize;
+export {
+    loremizeWords,
+};

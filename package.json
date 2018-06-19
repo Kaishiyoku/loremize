@@ -2,7 +2,6 @@
   "name": "loremize",
   "version": "1.0.0",
   "description": "Simple JavaScript-based sample text generator.",
-  "main": "./dist/loremize.js",
   "scripts": {
     "lint": "eslint ./src ./scripts --ext .js",
     "build:clean": "babel-node --presets es2015 scripts/cleanup-build-dir.js",
