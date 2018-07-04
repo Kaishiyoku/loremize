@@ -1,7 +1,7 @@
-import {loremizeIntegers, loremizeSentences, loremizeWords} from '../src/index';
+import {loremizeIntegers, loremizeSentences, loremizeWords} from '../src/main';
 import isFunction from 'lodash/isFunction';
 
-describe('index', () => {
+describe('main', () => {
     it('should load the main functions', () => {
         expect(isFunction(loremizeWords)).toBeTruthy();
         expect(isFunction(loremizeIntegers)).toBeTruthy();
