@@ -1,6 +1,7 @@
-// https://en.wikipedia.org/wiki/List_of_Roman_deities
+// @flow
 
-const romanDeities = [
+// https://en.wikipedia.org/wiki/List_of_Roman_deities
+const romanDeities: Array<string> = [
     'Abundantia',
     'Acca Larentia',
     'Acis',

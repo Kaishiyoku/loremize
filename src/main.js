@@ -1,3 +1,4 @@
+// @flow
 import loremizeIntegers from './loremizeIntegers';
 import loremizeSentences from './loremizeSentences';
 import loremizeWords from './loremizeWords';
@@ -7,19 +8,19 @@ import romanDeities from './data/romanDeities';
 import germanicDeities from './data/germanicDieties';
 import rollTheDiceFor from './rollTheDiceFor';
 
-const loremizeIpsums = loremizeWords(loremIpsums);
-const loremizeGreekDeities = loremizeWords(greekDeities, ', ');
-const loremizerRomanDeities = loremizeWords(romanDeities, ', ');
-const loremizeGermanicDeities = loremizeWords(germanicDeities, ', ');
+const loremizeIpsums: Function = loremizeWords(loremIpsums);
+const loremizeGreekDeities: Function = loremizeWords(greekDeities, ', ');
+const loremizerRomanDeities: Function = loremizeWords(romanDeities, ', ');
+const loremizeGermanicDeities: Function = loremizeWords(germanicDeities, ', ');
 
-const loremizeIpsumSentences = loremizeSentences(loremIpsums);
+const loremizeIpsumSentences: Function = loremizeSentences(loremIpsums);
 
-const rollTheDice4 = rollTheDiceFor(4);
-const rollTheDice6 = rollTheDiceFor(6);
-const rollTheDice8 = rollTheDiceFor(8);
-const rollTheDice10 = rollTheDiceFor(10);
-const rollTheDice12 = rollTheDiceFor(12);
-const rollTheDice20 = rollTheDiceFor(20);
+const rollTheDice4: Function = rollTheDiceFor(4);
+const rollTheDice6: Function = rollTheDiceFor(6);
+const rollTheDice8: Function = rollTheDiceFor(8);
+const rollTheDice10: Function = rollTheDiceFor(10);
+const rollTheDice12: Function = rollTheDiceFor(12);
+const rollTheDice20: Function = rollTheDiceFor(20);
 
 export {
     loremizeIntegers,

@@ -2,6 +2,7 @@
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import {terser} from 'rollup-plugin-terser';
+import flow from 'rollup-plugin-flow';
 import pkg from './package.json';
 
 export default [
@@ -13,6 +14,7 @@ export default [
             format: 'umd',
         },
         plugins: [
+            flow(),
             resolve(),
             commonjs(),
             terser(),
@@ -24,6 +26,9 @@ export default [
         output: [
             {file: pkg.module, format: 'es'},
         ],
+        plugins: [
+            flow(),
+        ],
     },
     {
         input: 'src/main.js',
@@ -32,6 +37,7 @@ export default [
             {file: pkg.main, format: 'cjs'},
         ],
         plugins: [
+            flow(),
             terser(),
         ],
     },

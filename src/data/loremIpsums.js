@@ -1,4 +1,6 @@
-const loremIpsums = [
+// @flow
+
+const loremIpsums: Array<string> = [
     'accusam',
     'aliquyam',
     'amet',

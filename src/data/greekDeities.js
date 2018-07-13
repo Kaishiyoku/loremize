@@ -1,6 +1,7 @@
-// https://en.wikipedia.org/wiki/List_of_Greek_mythological_figures
+// @flow
 
-const greekDeities = [
+// https://en.wikipedia.org/wiki/List_of_Greek_mythological_figures
+const greekDeities: Array<string> = [
     'Aphrodite',
     'Apollo',
     'Ares',

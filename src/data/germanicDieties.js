@@ -1,6 +1,7 @@
-// https://en.wikipedia.org/wiki/List_of_Germanic_deities
+// @flow
 
-const germanicDeities = [
+// https://en.wikipedia.org/wiki/List_of_Germanic_deities
+const germanicDeities: Array<string> = [
     'Baldr',
     'Bragi',
     'Dellingr',
