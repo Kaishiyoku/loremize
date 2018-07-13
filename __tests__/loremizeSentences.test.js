@@ -1,5 +1,5 @@
 import loremizeSentences from '../src/loremizeSentences';
-import loremIpsums from '../src/loremIpsums';
+import loremIpsums from '../src/data/loremIpsums';
 import isArray from 'lodash/isArray';
 
 describe('loremizeSentences', () => {

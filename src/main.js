@@ -1,12 +1,14 @@
-import loremizeWords from './loremizeWords';
 import loremizeIntegers from './loremizeIntegers';
 import loremizeSentences from './loremizeSentences';
-import loremIpsums from './loremIpsums';
+import loremizeWords from './loremizeWords';
+import loremIpsums from './data/loremIpsums';
 
 const loremizeIpsum = loremizeWords(loremIpsums);
 
+const loremizeIpsumSentences = loremizeSentences(loremIpsums);
+
 export {
     loremizeIntegers,
-    loremizeSentences,
+    loremizeIpsumSentences,
     loremizeIpsum,
 };
