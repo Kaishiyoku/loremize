@@ -71,7 +71,7 @@
     "transformIgnorePatterns": [
       "node_modules/(?!ramda)"
     ],
-    "testRegex": "/__tests__/.*\\.(js)$",
+    "testRegex": "/__tests__/.*\\.test\\.(js)$",
     "moduleDirectories": [
       "node_modules",
       "src"

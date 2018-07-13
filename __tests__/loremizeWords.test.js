@@ -1,31 +1,32 @@
-import loremizeWords from '../src/loremizeWords';
-import loremIpsums from '../src/data/loremIpsums';
 import isArray from 'lodash/isArray';
+import loremizers from './config/loremizers';
 
 describe('loremizeWords', () => {
-    const loremizeIpsums = loremizeWords(loremIpsums);
-
     it('should return the given number of words', () => {
-        expect(loremIpsums.includes(loremizeIpsums(1))).toBeTruthy();
+        loremizers.forEach((loremizer) => {
+            expect(loremizer.data.includes(loremizer.wordsFn(1))).toBeTruthy();
 
-        loremizeIpsums(10).split(' ').forEach((value) => {
-            expect(loremIpsums.includes(value)).toBeTruthy();
+            loremizer.wordsFn(10).split(' ').forEach((value) => {
+                expect(loremizer.data.includes(value)).toBeTruthy();
+            });
+
+            expect(loremizer.wordsFn(0)).toBeNull();
         });
-
-        expect(loremizeIpsums(0)).toBeNull();
     });
 
     it('should return an array if wanted', () => {
-        const loremWords = loremizeIpsums(1, true);
+        loremizers.forEach((loremizer) => {
+            const loremizerAsArray = loremizer.wordsFn(1, true);
 
-        expect(isArray(loremWords)).toBeTruthy();
+            expect(isArray(loremizerAsArray)).toBeTruthy();
 
-        loremWords.forEach((word) => {
-            expect(loremIpsums.includes(word)).toBeTruthy();
-        });
+            loremizerAsArray.forEach((word) => {
+                expect(loremizer.data.includes(word)).toBeTruthy();
+            });
 
-        loremizeIpsums(10, true).forEach((value) => {
-            expect(loremIpsums.includes(value)).toBeTruthy();
+            loremizer.wordsFn(10, true).forEach((value) => {
+                expect(loremizer.data.includes(value)).toBeTruthy();
+            });
         });
     });
 });

@@ -1,16 +1,17 @@
 import range from 'lodash/range';
 import getRandomWord from '../src/helpers/getRandomWord';
-import loremIpsums from '../src/data/loremIpsums';
+import loremizers from './config/loremizers';
 
 describe('getRandomWord', () => {
     it('should return a random word', () => {
         const numberOfRuns = 1000;
 
-        const getRandomIpsum = getRandomWord(loremIpsums);
+        loremizers.forEach((loremizer) => {
+            range(numberOfRuns).forEach(() => {
+                const getRandomWordForCurrentLoremizer = getRandomWord(loremizer.data);
 
-        range(numberOfRuns).forEach(() => {
-            expect(loremIpsums.includes(getRandomIpsum())).toBeTruthy();
+                expect(loremizer.data.includes(getRandomWordForCurrentLoremizer())).toBeTruthy();
+            });
         });
     });
 });
-
