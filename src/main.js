@@ -2,13 +2,18 @@ import loremizeIntegers from './loremizeIntegers';
 import loremizeSentences from './loremizeSentences';
 import loremizeWords from './loremizeWords';
 import loremIpsums from './data/loremIpsums';
+import greekDeities from './data/greekDeities';
 
-const loremizeIpsum = loremizeWords(loremIpsums);
+const loremizeIpsums = loremizeWords(loremIpsums);
+const loremizeGreekDeities = loremizeWords(greekDeities);
 
 const loremizeIpsumSentences = loremizeSentences(loremIpsums);
+const loremizeGreekDeitySentences = loremizeSentences(greekDeities);
 
 export {
     loremizeIntegers,
     loremizeIpsumSentences,
-    loremizeIpsum,
+    loremizeIpsums,
+    loremizeGreekDeities,
+    loremizeGreekDeitySentences,
 };
