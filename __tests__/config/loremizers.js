@@ -1,7 +1,8 @@
 import greekDeities from '../../src/data/greekDeities';
 import loremIpsums from '../../src/data/loremIpsums';
-import {loremizeGreekDeities, loremizeIpsums, loremizeIpsumSentences, loremizerRomanDeities} from '../../src/main';
+import {loremizeGermanicDeities, loremizeGreekDeities, loremizeIpsums, loremizeIpsumSentences, loremizerRomanDeities} from '../../src/main';
 import romanDeities from '../../src/data/romanDeities';
+import germanicDeities from '../../src/data/germanicDieties';
 
 const loremizers = [
     {
@@ -19,6 +20,11 @@ const loremizers = [
         data: romanDeities,
         delimiter: ', ',
         wordsFn: loremizerRomanDeities,
+    },
+    {
+        data: germanicDeities,
+        delimiter: ', ',
+        wordsFn: loremizeGermanicDeities,
     },
 ];
 
