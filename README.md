@@ -5,9 +5,22 @@
 
 Simple JavaScript-based sample text generator.
 
-# Breaking changes
+Table of contents
+=================
+* [Installation](#installation)
+* [Breaking changes](#breaking-changes)
+* [License](#license)
+* [Author](#author)
 
-## 1.x.x > 2.x.x
+Installation
+============
+`npm install --save loremize`
+
+Breaking changes
+================
+
+1.x.x > 2.x.x
+-------------
 
 TLDR;
 
@@ -32,3 +45,13 @@ loremizeWords: (items, delimiter = ' ') => (numberOfWords, asArray = false) => [
 
 The `loremizeSentences` and `loremizeWords` functions should no longer be called, instead use the item-list-specific pendants:
 `loremizeIpsumSentences`, `loremizeIpsums`, `loremizeGreekDeities`, `loremizerRomanDeities`, `loremizeGermanicDeities`
+
+License
+=======
+MIT (https://github.com/Kaishiyoku/loremize/blob/master/LICENSE)
+
+
+Author
+======
+Twitter: [@kaishiyoku](https://twitter.com/kaishiyoku)  
+MAL: [kaishiyoku](https://myanimelist.net/profile/Kaishiyoku)
