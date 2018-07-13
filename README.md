@@ -30,17 +30,17 @@ TLDR;
 
 The function `getRandomWord` now requires a list of items to work:  
 ```javascript
-getRandomWord: (items) => () => [String];
+getRandomWord: Function (items: Array<string>) => ();
 ```
 
 Similar to that the `loremizeSentences` also requires a list of items to work:
 ```javascript
-loremizeSentences: (items) => (numberOfSentences, lowerBound, upperBound, asArray = false) => [Mixed]
+loremizeSentences: Function (items: Array<string>) => (numberOfSentences: number, lowerBound: number, upperBound: number, asArray: boolean = false)
 ```
 
 Same for the `loremizeWords` function; please note that now different delimiters are being used, depending on the item list:
 ```javascript
-loremizeWords: (items, delimiter = ' ') => (numberOfWords, asArray = false) => [Mixed]
+loremizeWords: Function (items: Array<string>, delimiter: string = ' ') => (numberOfWords: number, asArray: boolean = false)
 ```
 
 The `loremizeSentences` and `loremizeWords` functions should no longer be called, instead use the item-list-specific pendants:
