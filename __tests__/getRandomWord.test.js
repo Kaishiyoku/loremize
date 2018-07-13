@@ -1,5 +1,5 @@
 import range from 'lodash/range';
-import getRandomWord from '../src/getRandomWord';
+import getRandomWord from '../src/helpers/getRandomWord';
 import loremIpsums from '../src/data/loremIpsums';
 
 describe('getRandomWord', () => {

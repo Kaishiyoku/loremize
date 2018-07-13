@@ -1,5 +1,5 @@
 import range from 'lodash/range';
-import getRandomWord from './getRandomWord';
+import getRandomWord from './helpers/getRandomWord';
 import reduce from 'ramda/es/reduce';
 import map from 'ramda/es/map';
 import trim from 'ramda/es/trim';
