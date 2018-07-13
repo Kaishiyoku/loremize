@@ -1,5 +1,12 @@
 # Change Log
 
+## [2.2.0](https://github.com/kaishiyoku/loremize/tree/2.2.0) (2018-07-13)
+[Full Changelog](https://github.com/kaishiyoku/loremize/compare/2.1.0...2.2.0)
+
+**Implemented enhancements:**
+
+- Add Flow support [\#5](https://github.com/Kaishiyoku/loremize/issues/5)
+
 ## [2.1.0](https://github.com/kaishiyoku/loremize/tree/2.1.0) (2018-07-13)
 [Full Changelog](https://github.com/kaishiyoku/loremize/compare/2.0.0...2.1.0)
 
