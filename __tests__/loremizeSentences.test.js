@@ -1,7 +1,6 @@
 import loremizeSentences from '../src/loremizeSentences';
 import isArray from 'lodash/isArray';
 import loremizers from './config/loremizers';
-import fs from 'fs';
 
 describe('loremizeSentences', () => {
     it('should return some sentences', () => {
