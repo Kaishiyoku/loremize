@@ -1,6 +1,7 @@
 import random from 'lodash/random';
-import words from './words';
 
-export default function getRandomWord() {
-    return words[random(0, words.length - 1)];
+const getRandomWord = (items) => () => {
+    return items[random(0, items.length - 1)];
 }
+
+export default getRandomWord;

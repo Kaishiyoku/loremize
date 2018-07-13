@@ -6,16 +6,18 @@ import trim from 'ramda/es/trim';
 import compose from 'ramda/es/compose';
 import nAry from 'ramda/es/nAry';
 
-function loremizeWords(numberOfWords, asArray = false) {
+const loremizeWords = (items) => (numberOfWords, asArray = false) => {
     if (numberOfWords < 1) {
         return null;
     }
 
-    const arrayMapper = map(nAry(0, getRandomWord));
-    const reducer = reduce((acc, value) => `${acc} ${getRandomWord()}`, '');
+    const getRandomWordFromItems = getRandomWord(items);
+
+    const arrayMapper = map(nAry(0, getRandomWordFromItems));
+    const reducer = reduce((acc, value) => `${acc} ${getRandomWordFromItems()}`, '');
     const functor = asArray ? arrayMapper : compose(trim, reducer);
 
     return functor(range(numberOfWords));
-}
+};
 
 export default loremizeWords;

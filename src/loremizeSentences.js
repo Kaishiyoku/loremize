@@ -4,12 +4,14 @@ import nAry from 'ramda/es/nAry';
 import random from 'lodash/random';
 import loremizeWords from './loremizeWords';
 
-function loremizeSentences(numberOfSentences, lowerBound, upperBound, asArray = false) {
+const loremizeSentences = (items) => (numberOfSentences, lowerBound, upperBound, asArray = false) => {
     if (numberOfSentences < 1) {
         return null;
     }
 
-    const sentencePopulator = () => loremizeWords(random(lowerBound, upperBound));
+    const loremizer = loremizeWords(items);
+
+    const sentencePopulator = () => loremizer(random(lowerBound, upperBound));
     const sentences = map(nAry(0, sentencePopulator), range(numberOfSentences));
 
     if (asArray) {
@@ -17,6 +19,6 @@ function loremizeSentences(numberOfSentences, lowerBound, upperBound, asArray = 
     }
 
     return `${sentences.join('. ')}.`;
-}
+};
 
 export default loremizeSentences;

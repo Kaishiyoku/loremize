@@ -1,8 +1,10 @@
 import loremizeSentences from '../src/loremizeSentences';
-import words from '../src/words';
+import loremIpsums from '../src/loremIpsums';
 import isArray from 'lodash/isArray';
 
 describe('loremizeSentences', () => {
+    const loremizeSentencesOfIpsums = loremizeSentences(loremIpsums);
+
     it('should return some sentences', () => {
         const filterSentenceArr = (arr) => arr.filter((value) => value !== '');
 
@@ -10,7 +12,7 @@ describe('loremizeSentences', () => {
         const lowerBound = 5;
         const upperBound = 9;
 
-        const loremSentences = loremizeSentences(numberOfSentences, lowerBound, upperBound);
+        const loremSentences = loremizeSentencesOfIpsums(numberOfSentences, lowerBound, upperBound);
         const loremSentenceArr = filterSentenceArr(loremSentences.split(/\. |\./));
         const loremWords = filterSentenceArr(loremSentences.replace(/\. |\./g, ' ').split(' '));
 
@@ -23,21 +25,21 @@ describe('loremizeSentences', () => {
         });
 
         loremWords.forEach((word) => {
-            expect(words.includes(word)).toBeTruthy();
+            expect(loremIpsums.includes(word)).toBeTruthy();
         });
 
-        expect(loremizeSentences(0)).toBeNull();
+        expect(loremizeSentencesOfIpsums(0)).toBeNull();
     });
 
     it('should return an array if wanted', () => {
-        const loremSentences = loremizeSentences(5, 2, 12, true);
+        const loremSentences = loremizeSentencesOfIpsums(5, 2, 12, true);
 
         expect(isArray(loremSentences)).toBeTruthy();
 
         const loremWords = loremSentences.join(' ').split(' ').filter((value) => value !== '');
 
         loremWords.forEach((word) => {
-            expect(words.includes(word)).toBeTruthy();
+            expect(loremIpsums.includes(word)).toBeTruthy();
         });
     });
 });

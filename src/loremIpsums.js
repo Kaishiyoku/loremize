@@ -1,4 +1,4 @@
-const words = [
+const loremIpsums = [
     'accusam',
     'aliquyam',
     'amet',
@@ -41,4 +41,4 @@ const words = [
     'voluptua',
 ];
 
-export default words;
+export default loremIpsums;

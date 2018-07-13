@@ -1,13 +1,15 @@
 import range from 'lodash/range';
 import getRandomWord from '../src/getRandomWord';
-import words from '../src/words';
+import loremIpsums from '../src/loremIpsums';
 
 describe('getRandomWord', () => {
     it('should return a random word', () => {
         const numberOfRuns = 1000;
 
+        const getRandomIpsum = getRandomWord(loremIpsums);
+
         range(numberOfRuns).forEach(() => {
-            expect(words.includes(getRandomWord())).toBeTruthy();
+            expect(loremIpsums.includes(getRandomIpsum())).toBeTruthy();
         });
     });
 });
