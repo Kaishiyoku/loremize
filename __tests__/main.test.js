@@ -1,4 +1,4 @@
-import {loremizeIntegers, loremizeIpsumSentences, loremizeIpsums, loremizeGreekDeities, loremizeGreekDeitySentences} from '../src/main';
+import {loremizeGreekDeities, loremizeIntegers, loremizeIpsums, loremizeIpsumSentences, loremizerRomanDeities} from '../src/main';
 import isFunction from 'lodash/isFunction';
 
 describe('main', () => {
@@ -9,6 +9,7 @@ describe('main', () => {
         expect(isFunction(loremizeIpsumSentences)).toBeTruthy();
 
         expect(isFunction(loremizeGreekDeities)).toBeTruthy();
-        expect(isFunction(loremizeGreekDeitySentences)).toBeTruthy();
+
+        expect(isFunction(loremizerRomanDeities)).toBeTruthy();
     });
 });

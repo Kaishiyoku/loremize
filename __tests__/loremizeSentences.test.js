@@ -1,6 +1,7 @@
 import loremizeSentences from '../src/loremizeSentences';
 import isArray from 'lodash/isArray';
 import loremizers from './config/loremizers';
+import fs from 'fs';
 
 describe('loremizeSentences', () => {
     it('should return some sentences', () => {
@@ -10,7 +11,7 @@ describe('loremizeSentences', () => {
         const lowerBound = 5;
         const upperBound = 9;
 
-        loremizers.forEach((loremizer) => {
+        loremizers.filter((loremizer) => loremizer.sentencesFn).forEach((loremizer) => {
             const loremSentences = loremizer.sentencesFn(numberOfSentences, lowerBound, upperBound);
             const loremSentenceArr = filterSentenceArr(loremSentences.split(/\. |\./));
             const loremWords = filterSentenceArr(loremSentences.replace(/\. |\./g, ' ').split(' '));
@@ -32,7 +33,7 @@ describe('loremizeSentences', () => {
     });
 
     it('should return an array if wanted', () => {
-        loremizers.forEach((loremizer) => {
+        loremizers.filter((loremizer) => loremizer.sentencesFn).forEach((loremizer) => {
             const loremSentences = loremizer.sentencesFn(5, 2, 12, true);
 
             expect(isArray(loremSentences)).toBeTruthy();

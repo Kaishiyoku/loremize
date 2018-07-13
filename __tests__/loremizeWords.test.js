@@ -6,7 +6,7 @@ describe('loremizeWords', () => {
         loremizers.forEach((loremizer) => {
             expect(loremizer.data.includes(loremizer.wordsFn(1))).toBeTruthy();
 
-            loremizer.wordsFn(10).split(' ').forEach((value) => {
+            loremizer.wordsFn(10).split(loremizer.delimiter).forEach((value) => {
                 expect(loremizer.data.includes(value)).toBeTruthy();
             });
 
