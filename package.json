@@ -38,9 +38,9 @@
   },
   "homepage": "https://github.com/Kaishiyoku/loremize#readme",
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.0",
-    "@babel/node": "^7.0.0",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/node": "^7.8.7",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
     "@babel/plugin-proposal-decorators": "^7.0.0",
     "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
@@ -50,29 +50,28 @@
     "@babel/plugin-proposal-throw-expressions": "^7.0.0",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/plugin-syntax-import-meta": "^7.0.0",
-    "@babel/polyfill": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/preset-flow": "^7.0.0",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-eslint": "10.0.3",
-    "babel-jest": "^23.4.2",
-    "babel-loader": "8.0.6",
+    "@babel/polyfill": "^7.8.7",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-flow": "^7.9.0",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.0.1",
+    "babel-loader": "^8.1.0",
     "babel-plugin-transform-imports": "2.0.0",
     "babel-preset-minify": "0.5.1",
     "del": "5.1.0",
-    "eslint": "6.8.0",
+    "eslint": "^7.0.0",
     "eslint-plugin-babel": "5.3.0",
     "eslint-plugin-fp": "2.3.0",
     "eslint-plugin-no-unsafe-chars": "1.0.2",
-    "flow-bin": "0.116.1",
+    "flow-bin": "^0.125.1",
     "identity-obj-proxy": "3.0.0",
-    "jest": "24.9.0",
-    "ramda": "^0.26.1",
-    "rollup": "1.29.0",
+    "jest": "26.0.1",
+    "ramda": "^0.27.0",
+    "rollup": "^2.10.5",
     "rollup-plugin-commonjs": "10.1.0",
     "rollup-plugin-flow": "1.1.1",
     "rollup-plugin-node-resolve": "5.2.0",
-    "rollup-plugin-terser": "5.2.0"
+    "rollup-plugin-terser": "^5.3.0"
   },
   "peerDependencies": {
     "lodash": "^4.17.15",
@@ -81,9 +80,6 @@
   "jest": {
     "moduleFileExtensions": [
       "js"
-    ],
-    "transformIgnorePatterns": [
-      "node_modules/(?!ramda)"
     ],
     "testRegex": "/__tests__/.*\\.test\\.(js)$",
     "moduleDirectories": [

@@ -1,10 +1,10 @@
 // @flow
 import range from 'lodash/range';
 import getRandomWord from './helpers/getRandomWord';
-import reduce from 'ramda/es/reduce';
-import map from 'ramda/es/map';
-import compose from 'ramda/es/compose';
-import nAry from 'ramda/es/nAry';
+import reduce from 'ramda/src/reduce';
+import map from 'ramda/src/map';
+import compose from 'ramda/src/compose';
+import nAry from 'ramda/src/nAry';
 
 const trimFirstDelimiter: Function = (delimiter: string) => (str: string) => {
     return str.substring(delimiter.length);

@@ -1,7 +1,7 @@
 // @flow
-import map from 'ramda/es/map';
+import map from 'ramda/src/map';
 import range from 'lodash/range';
-import nAry from 'ramda/es/nAry';
+import nAry from 'ramda/src/nAry';
 import random from 'lodash/random';
 import loremizeWords from './loremizeWords';
 
